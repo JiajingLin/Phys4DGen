@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="We propose Phys4DGen, a novel, high-efficiency framework that generates physics-compliant 4D content from a single image with enhanced control capabilities.">
+  <meta name="keywords" content="3DGS, Physics, 4D Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phys4DGen: A Physics-Driven Framework for Controllable and Efficient 4D Content Generation from a Single Image</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/app.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Phys4DGen: A Physics-Driven Framework for Controllable and Efficient 4D Content Generation from a Single Image</h1>
+            <!-- <h2 class="subtitle is-3 publication-subtitle">CVPR 2024</h2> -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Jiajing Lin,</span>
+              <span class="author-block">Zhenzong Wang,</span>
+              <span class="author-block">Shu Jiang,</span>
+              <span class="author-block">Yongjie Hou,</span>
+              <span class="author-block">Jiang Min*</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">School of Informatics, Xiamen University</span>
+            </div>
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>*</sup>Equal Contributions</span>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2411.16800" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/JiajingLin/Phys4DGen"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The task of 4D content generation involves creating dynamic 3D models that evolve over time in response to
+              specific input conditions, such as images. Existing methods rely heavily on pre-trained video diffusion models to
+              guide 4D content dynamics, but these approaches often fail
+              to capture essential physical principles, as video diffusion
+              models lack a robust understanding of real-world physics.
+              Moreover, these models face challenges in providing finegrained control over dynamics and exhibit high computational costs. In this work, we propose <strong>Phys4DGen</strong>, a novel,
+              high-efficiency framework that generates physics-compliant
+              4D content from a single image with enhanced control capabilities. Our approach uniquely integrates physical simulations into the 4D generation pipeline, ensuring adherence
+              to fundamental physical laws. Inspired by the human ability
+              to infer physical properties visually, we introduce a Physical Perception Module (PPM) that discerns the material
+              properties and structural components of the 3D object from
+              the input image, facilitating accurate downstream simulations. Phys4DGen significantly accelerates the 4D generation process by eliminating iterative optimization steps in
+              the dynamics modeling phase. It allows users to intuitively
+              control the movement speed and direction of generated 4D
+              content by adjusting external forces, achieving finely tunable, physically plausible animations. Extensive evaluations show that Phys4DGen outperforms existing methods
+              in both inference speed and physical realism, producing
+              high-quality, controllable 4D content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <iframe src="https://drive.google.com/file/d/1eh7vxRxer7gfvPhs8jDE56oRjayBc9oe/preview"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Pipeline</h2>
+      <img src="./static/images/main_pipeline.jpg" class="interpolation-image" />
+      <p>
+        The framework includes three phases: 3D Gaussians Generation,
+        Physical Perception, and 4D Dynamics Generation. In
+        3D Gaussians Generation.
+        In 3D Gaussians Generation stage, from an input image, a static 3D Gaussians will be generated
+        under the guidance of the diffusion model. In Physcial Perception stage, the 3D Gaussians will be segmented into different parts, with
+        corresponding material types and properties assigned to each. In 4D Dynamics Generation stage, we consider each 3D Gaussian kernel
+        as particles within a continuum. Sequentially, we employ MPM to generate dynamics to the static 3D Gaussians. Meanwhile, users can
+        guide the MPM simulator to generate 4D content that aligns with their desired outcomes by adjusting the external forces.
+      </p>
+    </div>
+  </section>
+
+</body>
+
+</html>
