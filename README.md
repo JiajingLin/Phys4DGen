@@ -1,4 +1,4 @@
-# PhysGaussian: Physics-Integrated 3D Gaussians for Generative Dynamics
+# Phys4DGen: A Physics-Driven Framework for Controllable and Efficient 4D Content Generation from a Single Image
 
 ### [[Project Page](https://jiajinglin.github.io/Phys4DGen/)] [[arXiv](https://arxiv.org/abs/2411.16800)]
 
