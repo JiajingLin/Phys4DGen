@@ -50,13 +50,14 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Phys4DGen: A Physics-Driven Framework for Controllable and Efficient 4D Content Generation from a Single Image</h1>
+            <h1 class="title is-1 publication-title">Phys4DGen: Physics-Compliant 4D Generation with Multi-Material Composition Perception</h1>
             <!-- <h2 class="subtitle is-3 publication-subtitle">CVPR 2024</h2> -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">Jiajing Lin,</span>
               <span class="author-block">Zhenzong Wang,</span>
+              <span class="author-block">Dejun Xu,</span>
               <span class="author-block">Shu Jiang,</span>
-              <span class="author-block">Yongjie Hou,</span>
+              <span class="author-block">Yunpeng Gong,</span>
               <span class="author-block">Jiang Min*</span>
             </div>
 
@@ -114,23 +115,24 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              The task of 4D content generation involves creating dynamic 3D models that evolve over time in response to
-              specific input conditions, such as images. Existing methods rely heavily on pre-trained video diffusion models to
-              guide 4D content dynamics, but these approaches often fail
-              to capture essential physical principles, as video diffusion
-              models lack a robust understanding of real-world physics.
-              Moreover, these models face challenges in providing finegrained control over dynamics and exhibit high computational costs. In this work, we propose <strong>Phys4DGen</strong>, a novel,
-              high-efficiency framework that generates physics-compliant
-              4D content from a single image with enhanced control capabilities. Our approach uniquely integrates physical simulations into the 4D generation pipeline, ensuring adherence
-              to fundamental physical laws. Inspired by the human ability
-              to infer physical properties visually, we introduce a Physical Perception Module (PPM) that discerns the material
-              properties and structural components of the 3D object from
-              the input image, facilitating accurate downstream simulations. Phys4DGen significantly accelerates the 4D generation process by eliminating iterative optimization steps in
-              the dynamics modeling phase. It allows users to intuitively
-              control the movement speed and direction of generated 4D
-              content by adjusting external forces, achieving finely tunable, physically plausible animations. Extensive evaluations show that Phys4DGen outperforms existing methods
-              in both inference speed and physical realism, producing
-              high-quality, controllable 4D content.
+              4D content generation aims to create dynamically evolving 3D content that responds to specific input objects such as images or 3D
+              representations. Current approaches typically incorporate physical priors to animate 3D representations, but these methods suffer
+              from significant limitations: they not only require users lacking
+              physics expertise to manually specify material properties but also
+              struggle to effectively handle the generation of multi-material composite objects. To address these challenges, we propose Phys4DGen,
+              a novel 4D generation framework that integrates multi-material
+              composition perception with physical simulation. The framework
+              achieves automated, physically plausible 4D generation through
+              three innovative modules: first, the 3D Material Grouping module
+              partitions heterogeneous material regions on 3D representations
+              surfaces via semantic segmentation; second, the Internal Physical
+              Structure Discovery module constructs the mechanical structure of
+              object interiors; finally, we distill physical prior knowledge from
+              multimodal large language models to enable rapid and automatic
+              material properties identification for both objects’ surfaces and
+              interiors. Experiments on both synthetic and real-world datasets
+              demonstrate that Phys4DGen can generate high-fidelity 4D content with physical realism in open-world scenarios, significantly
+              outperforming state-of-the-art methods.
             </p>
           </div>
         </div>
@@ -153,14 +155,6 @@
       <h2 class="title is-3">Pipeline</h2>
       <img src="./static/images/main_pipeline.jpg" class="interpolation-image" />
       <p>
-        The framework includes three phases: 3D Gaussians Generation,
-        Physical Perception, and 4D Dynamics Generation. In
-        3D Gaussians Generation.
-        In 3D Gaussians Generation stage, from an input image, a static 3D Gaussians will be generated
-        under the guidance of the diffusion model. In Physcial Perception stage, the 3D Gaussians will be segmented into different parts, with
-        corresponding material types and properties assigned to each. In 4D Dynamics Generation stage, we consider each 3D Gaussian kernel
-        as particles within a continuum. Sequentially, we employ MPM to generate dynamics to the static 3D Gaussians. Meanwhile, users can
-        guide the MPM simulator to generate 4D content that aligns with their desired outcomes by adjusting the external forces.
       </p>
     </div>
   </section>
@@ -169,9 +163,22 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3">Visual Results</h2>
       <p>
-        We showcase the various visual results generated by Phys4DGen
+        We visualize the perceptual effects of Phys4DGen.
       </p>
       <br>
+      <img src="./static/images/perception_viz.jpg" class="interpolation-image" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">Image to 4D</h2>
+      <p>
+        We provide the rendered videos of 4D content generated from images.
+      </p>
+      <br>
+
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
@@ -208,6 +215,59 @@
           <h4 class="title is-size-5" style="text-align: center;">A yellow toy duck being pressed</h4>
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/duck_dynamic.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <h2 class="title is-3">3D to 4D</h2>
+      <p>
+        We provide rendered videos of 4D content generated from real-world static scenes in PhysDreamer, including alocasia, carnations, telephone, and hat.
+      </p>
+      <br>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h4 class="title is-size-5" style="text-align: center;"></h4>
+            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/Our_carnations.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+
+        <div class="column">
+          <div class="content">
+            <h4 class="title is-size-5" style="text-align: center;"></h4>
+            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/Ours_alocasia.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h4 class="title is-size-5" style="text-align: center;"></h4>
+            <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/Ours_hat.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      <div class="column">
+        <div class="content">
+          <h4 class="title is-size-5" style="text-align: center;"></h4>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Ours_telephone.mp4" type="video/mp4">
           </video>
         </div>
       </div>
