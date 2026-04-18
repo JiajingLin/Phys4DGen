@@ -143,9 +143,10 @@ This work is built on many amazing research works and open-source projects, than
 If you find this project useful, please consider citing our paper:
 ```tex
 @inproceedings{lin2025phys4dgen,
-  title={Phys4DGen: Physics-Compliant 4D Generation with Multi-Material Composition Perception},
+  title={Phys4dgen: Physics-compliant 4d generation with multi-material composition perception},
   author={Lin, Jiajing and Wang, Zhenzhong and Xu, Dejun and Jiang, Shu and Gong, Yunpeng and Jiang, Min},
-  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia (MM '25)},
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia},
+  pages={10398--10407},
   year={2025}
 }
 ```
