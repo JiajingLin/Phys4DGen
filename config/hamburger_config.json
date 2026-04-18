@@ -1,0 +1,93 @@
+{
+    "opacity_threshold": 0.00,
+    "rotation_degree": [90],
+    "rotation_axis": [0],
+    "substep_dt": 5e-5,
+    "frame_dt": 7.14e-2,
+    "frame_num": 14,
+    "nu": 0.4,
+    "E": 1e7,
+    "material": "plasticine",
+    "density": 600,
+    "g": [0,0,0],
+    "grid_v_damping_scale": 0.9999,
+    "rpic_damping": 0.0,
+    "phyfilling": false,
+    "use_predict_property": false,
+    "boundary_conditions": [
+        {
+            "type": "cuboid",
+            "point": [
+                1,
+                1,
+                0.5
+            ],
+            "size": [
+                1,
+                1,
+                0.1
+            ],
+            "velocity": [
+                0,
+                0,
+                0
+            ],
+            "start_time": 0,
+            "end_time": 1e3,
+            "reset": 1
+        },
+        {
+            "type": "enforce_particle_velocity_rotation",
+            "point": [
+                1.025,
+                1,
+                1.5
+            ],
+            "normal": [
+                0,
+                0,
+                1
+            ],
+            "half_height_and_radius": [
+                0.35,
+                1.0
+            ],
+            "rotation_scale": 0.0,
+            "translation_scale": -7.0e-1,
+            "start_time": 0.0,
+            "end_time": 0.5
+        },
+        {
+            "type": "enforce_particle_velocity_rotation",
+            "point": [
+                1.025,
+                1,
+                1.5
+            ],
+            "normal": [
+                0,
+                0,
+                1
+            ],
+            "half_height_and_radius": [
+                0.35,
+                1.0
+            ],
+            "rotation_scale": 0.0,
+            "translation_scale": -10e-2,
+            "start_time": 0.5,
+            "end_time": 1.0
+        }
+    ],
+    "mpm_space_vertical_upward_axis": [0,0,1],
+    "mpm_space_viewpoint_center": [0.95,1.07,1],
+    "default_camera_index": -1, 
+    "show_hint": false,
+    "init_azimuthm": 45,
+    "init_elevation": 0,
+    "init_radius": 2.5,
+    "move_camera": false,
+    "delta_a": 10.0,
+    "delta_e": 0.0,
+    "delta_r": 0.0
+}

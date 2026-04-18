@@ -1,0 +1,81 @@
+{
+    "opacity_threshold": 0.0,
+    "rotation_degree": [90],
+    "rotation_axis": [0],
+    "substep_dt": 5e-5,
+    "frame_dt": 7.14e-2,
+    "frame_num": 14,
+    "nu": 0.4,
+    "E": 1e4,
+    "material": "sand",
+    "density": 800,
+    "g": [0,0,-9.8],
+    "grid_v_damping_scale": 0.9999,
+    "rpic_damping": 0.0,
+    "phyfilling": true,
+    "use_predict_property": true,
+    "boundary_conditions": [
+        {
+            "type": "surface_collider",
+            "point": [
+                1,
+                1,
+                0.5200
+            ],
+            "normal": [
+                0.0,
+                0.0,
+                1.0
+            ],
+            "surface": "sticky",
+            "friction": 0.0,
+            "start_time": 0,
+            "end_time": 1e3
+        },
+        {
+            "type": "release_particles_sequentially",
+            "normal": [
+                0,
+                0,
+                1
+            ],
+            "start_position": 0.5,
+            "end_position": 1.0,
+            "num_layers": 30,
+            "start_time": 0.0,
+            "end_time": 0.5
+        },
+        {
+            "type": "enforce_selection_particle_keep_static",
+            "selection_captions":["Red scarf.", "Black hat."],
+            "start_time": 0,
+            "end_time": 1e3
+        },
+        {
+            "type": "enforce_selection_particle_translation",
+            "selection_captions":["Red scarf.", "Black hat."],
+            "velocity": [0,0,-1e-1],
+            "start_time": 0.35,
+            "end_time": 0.8
+        },
+        {
+            "type": "enforce_selection_particle_translation",
+            "selection_captions":["Red scarf.", "Black hat."],
+            "velocity": [0,0,-3e-1],
+            "start_time": 0.8,
+            "end_time": 1.0
+        }
+
+    ],
+    "mpm_space_vertical_upward_axis": [0,0,1],
+    "mpm_space_viewpoint_center": [0.95,1.07,1],
+    "default_camera_index": -1, 
+    "show_hint": false,
+    "init_azimuthm": 45,
+    "init_elevation": 0,
+    "init_radius": 2.5,
+    "move_camera": false,
+    "delta_a": 0.4,
+    "delta_e": 0.0,
+    "delta_r": 0.0
+}

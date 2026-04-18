@@ -1,0 +1,35 @@
+seed: 1234 
+input_mode: image  
+
+# Pre Render
+prerender_mode: "normal"  # prerender mode
+
+sh_degree: 0  # spherical harmonics degree
+radius: 1.5  # training camera radius
+fovy: 49.1  # fov in y direction
+image_height: 512  # image height
+image_width: 512  # image width
+
+n_azimuth: 64  # number of azimuth views
+n_elevation: 1  # number of elevation views
+
+prerender_view_num: 120  # number of prerender views
+
+# CLIP Alignment
+clip_align: true  # whether to use CLIP alignment
+
+# Material Grouping
+occ_thr: 0.1  # occlusion threshold, relative to scaled scene
+kernel_size: 0  # kernel size
+
+# Phyfilling
+grid_cell_size_ns: 0.03125  
+dist_thr_ns: 0.1  
+mask_only: true  
+
+particle_binding: true  
+
+
+save_simulation_model: false  
+
+fps: 7  

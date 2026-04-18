@@ -1,0 +1,62 @@
+{
+    "opacity_threshold": 0.05,
+    "rotation_degree": [90],
+    "rotation_axis": [0],
+    "substep_dt": 5e-5,
+    "frame_dt": 7.14e-2,
+    "frame_num": 14,
+    "nu": 0.4,
+    "E": 1e6,
+    "material": "jelly",
+    "density": 500,
+    "g": [0,0,0],
+    "grid_v_damping_scale": 0.9999,
+    "rpic_damping": 0.0,
+    "n_grid": 75,
+    "phyfilling": true,
+    "use_predict_property": true,
+    "boundary_conditions": [
+        {
+            "type": "particle_impulse",
+            "force": [
+                5.0,
+                0.0,
+                0.0
+            ],
+            "num_dt": 20,
+            "start_time": 7.14e-2
+        },
+        {
+            "type": "cuboid",
+            "point": [
+                1,
+                1,
+                0.5
+            ],
+            "size": [
+                0.5,
+                0.5,
+                0.4
+            ],
+            "velocity": [
+                0,
+                0,
+                0
+            ],
+            "start_time": 0,
+            "end_time": 1e3,
+            "reset": 1
+        }
+    ],
+    "mpm_space_vertical_upward_axis": [0,0,1],
+    "mpm_space_viewpoint_center": [0.95,1.07,1],
+    "default_camera_index": -1, 
+    "show_hint": false,
+    "init_azimuthm": 45,
+    "init_elevation": 0,
+    "init_radius": 2.5,
+    "move_camera": false,
+    "delta_a": 0.4,
+    "delta_e": 0.0,
+    "delta_r": 0.0
+}
